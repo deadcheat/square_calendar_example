@@ -12,8 +12,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  square_calendar: ^0.0.3
-    # path:  '../flutter_square_calendar/'
+  square_calendar: ^0.0.5
+  # square_calendar: 
+  #   path:  '../flutter_square_calendar/'
 
 
 

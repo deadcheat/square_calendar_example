@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Builder(
         builder: (context) {
-          return new SafeArea(
+          return new Center(
             // Center is a layout widget. It takes a single child and positions it
             // in the middle of the parent.
             child:
@@ -98,9 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 );
               },
-              tileBuilder:
-                  (date, index, baseDate, firstDayOfMonth, lastDayOfMonth) {
-                return new GridTile(child: new Text(date.day.toString()));
+              tileBuilder: (child, index, date, baseDate, firstDayOfMonth,
+                  lastDayOfMonth) {
+                return new GridTile(child: child);
+              },
+              widgetBuilder:
+                  (index, date, baseDate, firstDayOfMonth, lastDayOfMonth) {
+                return new Text(date.day.toString());
               },
             ),
           );
