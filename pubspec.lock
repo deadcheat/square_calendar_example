@@ -320,9 +320,9 @@ packages:
   square_calendar:
     dependency: "direct dev"
     description:
-      name: square_calendar
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../flutter_square_calendar"
+      relative: true
+    source: path
     version: "0.0.2"
   stack_trace:
     dependency: transitive

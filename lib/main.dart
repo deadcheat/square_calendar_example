@@ -71,25 +71,40 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: new Text(widget.title),
       ),
-      body: new Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child:
-            /**
+      body: new Builder(
+        builder: (context) {
+          return new SafeArea(
+            // Center is a layout widget. It takes a single child and positions it
+            // in the middle of the parent.
+            child:
+                /**
              * Basical Use
              */
-            new SquareCalendar(year: 2018, month: 2),
-        /**
+                // new SquareCalendar(year: 2018, month: 2),
+                /**
              * If you design how build GridTiles,
              * set function(Datetime date, Datetime baseDate) to tileBuilder 
              */
-        // new SquareCalendar(
-        //   year: 2018,
-        //   month: 2,
-        //   tileBuilder: (date, basedate) {
-        //     return new GridTile(child: new Text(date.day.toString()));
-        //   },
-        // ),
+                new SquareCalendar(
+              year: 2018,
+              month: 2,
+              gestureBuilder: (child, int, date, base, first, last) {
+                return new GestureDetector(
+                  child: child,
+                  onTap: () {
+                    Scaffold.of(context).showSnackBar(new SnackBar(
+                          content: new Text("tapped: " + date.toString()),
+                        ));
+                  },
+                );
+              },
+              tileBuilder:
+                  (date, index, baseDate, firstDayOfMonth, lastDayOfMonth) {
+                return new GridTile(child: new Text(date.day.toString()));
+              },
+            ),
+          );
+        },
       ),
     );
   }
