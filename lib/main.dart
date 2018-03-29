@@ -86,10 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
              * set function(Datetime date, Datetime baseDate) to tileBuilder 
              */
                 new SquareCalendar(
-              year: 2018,
-              month: 2,
+              year: 2016,
+              month: 4,
               gestureBuilder: (child, int, date, base, first, last) {
-                return new GestureDetector(
+                return new InkWell(
                   child: child,
                   onTap: () {
                     Scaffold.of(context).showSnackBar(new SnackBar(
